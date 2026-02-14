@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine 💖</title>
+
+<style>
+body{
+    background: linear-gradient(45deg,#ff9a9e,#fad0c4,#ffc0cb);
+    font-family: Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* JUDUL */
+h1{
+    margin-top:40px;
+    color:#ff0066;
+    font-size:40px;
+    animation: glow 1s infinite alternate;
+}
+@keyframes glow{
+    from{ text-shadow:0 0 10px #ff4da6;}
+    to{ text-shadow:0 0 30px #ff0066;}
+}
+
+/* TOMBOL */
+.btn{
+    background:#ff4da6;
+    border:none;
+    padding:15px 25px;
+    font-size:18px;
+    border-radius:20px;
+    color:white;
+    cursor:pointer;
+    margin-top:20px;
+    transition:0.3s;
+}
+.btn:hover{
+    transform:scale(1.1);
+    background:#ff0066;
+}
+
+/* UCAPAN */
+.ucapan{
+    display:none;
+    margin-top:20px;
+    font-size:20px;
+    color:#cc0052;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* FOTO */
+.foto{
+    margin-top:30px;
+    width:220px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.foto:hover{
+    transform:scale(1.1) rotate(2deg);
+}
+
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 25px pink;
+    font-size:20px;
+    color:#ff0066;
+    animation: zoom 0.3s;
+}
+@keyframes zoom{
+    from{transform:translate(-50%,-50%) scale(0);}
+    to{transform:translate(-50%,-50%) scale(1);}
+}
+
+/* LOVE JATUH */
+.heart{
+    position:absolute;
+    top:-50px;
+    color:pink;
+    font-size:25px;
+    animation: jatuh linear infinite;
+}
+@keyframes jatuh{
+    0%{transform:translateY(-100px) rotate(0deg);}
+    100%{transform:translateY(800px) rotate(360deg);}
+}
+
+/* LOVE GERAK */
+.loveGerak{
+    position:absolute;
+    color:red;
+    font-size:30px;
+    animation: gerak 6s linear infinite;
+}
+@keyframes gerak{
+    0%{left:-10%; top:20%;}
+    50%{top:60%;}
+    100%{left:110%; top:30%;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 Happy Valentine 💖</h1>
+
+<button class="btn" onclick="bukaUcapan()">Klik disini</button>
+
+<div class="ucapan" id="ucapan">
+Happy valentines to my bestie
+who has been there for me since then and never left me even though i'm weird asf, 
+i hope we will always be friends until we grow old, 
+i love you, my girlie...
+</div>
+
+<br>
+<img src="h.jpeg" alt="jpg" onclick="klikFoto()">
+<div class="popup" id="popup">
+💌 MISS YOU GUYS
+</div>
+
+<script>
+function bukaUcapan(){
+    document.getElementById("ucapan").style.display="block";
+}
+
+function klikFoto(){
+    document.getElementById("popup").style.display="block";
+    setTimeout(()=>{
+        document.getElementById("popup").style.display="none";
+    },3000);
+}
+
+/* LOVE JATUH */
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💗";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,200);
+
+/* LOVE GERAK KIRI KANAN */
+function loveGerak(){
+    const love=document.createElement("div");
+    love.classList.add("loveGerak");
+    love.innerHTML="💖";
+    document.body.appendChild(love);
+
+    setTimeout(()=>{love.remove();},6000);
+}
+setInterval(loveGerak,1500);
+</script>
+
+</body>
+</html>
